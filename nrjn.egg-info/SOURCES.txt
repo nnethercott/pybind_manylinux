@@ -1,8 +1,0 @@
-pyproject.toml
-setup.py
-nrjn.egg-info/PKG-INFO
-nrjn.egg-info/SOURCES.txt
-nrjn.egg-info/dependency_links.txt
-nrjn.egg-info/not-zip-safe
-nrjn.egg-info/top_level.txt
-src/main.cpp
