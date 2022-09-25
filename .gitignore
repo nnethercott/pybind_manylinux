@@ -1,0 +1,7 @@
+/dist/*
+/build/*
+/CMakeFiles/*
+Makefile
+*.cmake 
+.DS_Store
+/.git/*
