@@ -1,0 +1,7 @@
+setup.py
+./nrjn/__init__.py
+nate.egg-info/PKG-INFO
+nate.egg-info/SOURCES.txt
+nate.egg-info/dependency_links.txt
+nate.egg-info/not-zip-safe
+nate.egg-info/top_level.txt

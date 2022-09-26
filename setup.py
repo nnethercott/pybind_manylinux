@@ -61,7 +61,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name='nate',
-    version='0.3.0',
+    version='0.0.1',
     description='bleh',
     long_description='',
     ext_modules=[CMakeExtension('nrjn')],

@@ -1,19 +1,23 @@
 #include <pybind11/pybind11.h>
 
 //new
+/*
 #include "mpi.h"
 #include <deal.II/base/index_set.h>
 #include <deal.II/lac/trilinos_vector.h>
 #include <iostream>
+*/
 
-
+//new comment
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
+
 
 int add(int i, int j) {
     return i + j;
 }
 
+/*
 void vhello(const unsigned &block){
   using dealii::IndexSet, dealii::TrilinosWrappers::MPI::Vector;
   using std::cout, std::endl;
@@ -44,6 +48,7 @@ void vhello(const unsigned &block){
   }
   cout<<endl;
 }
+*/
 
 namespace py = pybind11;
 
@@ -69,10 +74,12 @@ PYBIND11_MODULE(nate, m) {
     )pbdoc");
 
 
+/*
     //new
     m.def("vhello", &vhello, R"pbdoc(
         a new function i've added to the module which uses dealii objects.
     )pbdoc");
+*/
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);

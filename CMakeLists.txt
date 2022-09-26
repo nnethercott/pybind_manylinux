@@ -9,19 +9,17 @@ set(CMAKE_CXX_FLAGS "${NATE_FLAGS}")
 
 ################### deal.II ##################################
 # Locate deal.II and initialize its variables.
-find_package(deal.II 9.2.0 REQUIRED
-  HINTS ${DEAL_II_DIR} $ENV{DEAL_II_DIR} $ENV{mkDealiiPrefix}
-)
-deal_ii_initialize_cached_variables()
+#find_package(deal.II 9.2.0 REQUIRED HINTS ${DEAL_II_DIR} $ENV{DEAL_II_DIR} $ENV{mkDealiiPrefix})
+#deal_ii_initialize_cached_variables()
 
 ################### pybind11 ##################################
 include_directories(SYSTEM pybind11/include)
 include_directories(SYSTEM $ENV{mkPythonInc})
-add_subdirectory(/root/lifex_mnt/pyfex/pybind11 ../)
+add_subdirectory(/root/mnt/pybind11 ../)
 set(PYBIND11_LTO_CXX_FLAGS "OFF" CACHE INTERNAL "")
 set(PYBIND11_LTO_LINKER_FLAGS "OFF" CACHE INTERNAL "")
 add_definitions(-DWITH_PYFEX)
 
 ##############################################################
 pybind11_add_module(nate ./nrjn/main.cpp)
-DEAL_II_SETUP_TARGET(nate)
+#DEAL_II_SETUP_TARGET(nate)
