@@ -21,21 +21,11 @@ set(PYBIND11_LTO_LINKER_FLAGS "OFF" CACHE INTERNAL "")
 add_definitions(-DWITH_PYFEX)
 
 ##############################################################
-pybind11_add_module(nate ./nrjn/main.cpp)
+set(target "nate")
+#add_executable(target ./nrjn/main.cpp)
+pybind11_add_module(target ./nrjn/main.cpp)
+DEAL_II_SETUP_TARGET(target)
 
-#going based of the dealii macro
-target_include_directories(nate PRIVATE ${DEAL_II_INCLUDE_DIRS})
-SET_PROPERTY(TARGET nate APPEND_STRING PROPERTY
-    LINK_FLAGS " ${DEAL_II_LINKER_FLAGS} ${DEAL_II_LINKER_FLAGS_DEBUG}"
-    )
-SET(_flags "${DEAL_II_CXX_FLAGS} ${DEAL_II_CXX_FLAGS_DEBUG}")
-SEPARATE_ARGUMENTS(_flags)
-TARGET_COMPILE_OPTIONS(nate PUBLIC
-  $<$<COMPILE_LANGUAGE:CXX>:${_flags}>
-  )
-
-TARGET_COMPILE_DEFINITIONS(nate
-  PUBLIC ${DEAL_II_USER_DEFINITIONS} ${DEAL_II_USER_DEFINITIONS_DEBUG}
-  )
-
-TARGET_LINK_LIBRARIES(nate PRIVATE ${DEAL_II_TARGET_DEBUG})
+#for strict dealii testing, as a baseline to make sure this docker works
+#add_executable(ben ./dealii_only/d2.cpp)
+#DEAL_II_SETUP_TARGET(ben)
